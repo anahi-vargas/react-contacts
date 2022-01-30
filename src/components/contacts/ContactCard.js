@@ -1,19 +1,20 @@
+import { ContactCardContainer, ContactCardAvatar, ContactCardButton, ContactCardInfo} from "../StyledComponents"
 const ContactCard = ({ firstName='', lastName='', phoneNumber='', profilePic='' }) => {
     return (
-        <div>
-            <div>
+        <ContactCardContainer>
+            <ContactCardInfo>
                 <div>
-                    <img src={profilePic} alt={`Profile of ${firstName} ${lastName}.`} />
+                    <ContactCardAvatar src={profilePic} alt={`Profile of ${firstName} ${lastName}.`} />
                 </div>
                 <div>
                     <p>{firstName} {lastName}</p>
                     <p>{phoneNumber}</p>
                 </div>
-            </div>
+                </ContactCardInfo>
             <div>
-                <button>X</button>
+                <ContactCardButton>X</ContactCardButton>
             </div>
-        </div>
+        </ContactCardContainer>
     )
 }
 

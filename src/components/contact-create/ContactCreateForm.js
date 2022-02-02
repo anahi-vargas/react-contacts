@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { AvatarDefault, CreateContactInputContainer, CreateContactForm, FormAvatar, FormButton, FormInput } from "../StyledComponents";
+import { FaUserCircle } from "react-icons/fa"
 
 function ContactCreateForm(props) {
     const [firstName, setFirstName] = useState("")
@@ -10,16 +12,17 @@ function ContactCreateForm(props) {
 
     const handleFormSubmit = (event) => {
         event.preventDefault()
+        console.log(profilePic)
     }
 
     return(
-        <form onSubmit={handleFormSubmit}>
+        <CreateContactForm onSubmit={handleFormSubmit}>
             <div>
-                <img src={profilePic} alt="Profile preview." />
+               {profilePic ? <FormAvatar src={profilePic} alt="Profile preview." /> : <FaUserCircle className="default-avatar" />}
             </div>
-            <div>
+            <CreateContactInputContainer>
                 <div>
-                    <input
+                    <FormInput
                         type="text"
                         placeholder="First Name"
                         name="firstName"
@@ -28,7 +31,7 @@ function ContactCreateForm(props) {
                     />
                 </div>
                 <div>
-                    <input
+                    <FormInput
                         type="text"
                         placeholder="Last Name"
                         name="lastName"
@@ -37,7 +40,7 @@ function ContactCreateForm(props) {
                     />
                 </div>
                 <div>
-                    <input
+                    <FormInput
                         type="tel"
                         placeholder="Phone Number"
                         name="phoneNumber"
@@ -46,7 +49,7 @@ function ContactCreateForm(props) {
                     />
                 </div>
                 <div>
-                    <input
+                    <FormInput
                         type="email"
                         placeholder="Email"
                         name="email"
@@ -55,7 +58,7 @@ function ContactCreateForm(props) {
                     />
                 </div>
                 <div>
-                    <input
+                    <FormInput
                         type="text"
                         placeholder="Address"
                         name="address"
@@ -64,7 +67,7 @@ function ContactCreateForm(props) {
                     />
                 </div>
                 <div>
-                    <input
+                    <FormInput
                         type="text"
                         placeholder="Profile Picture Url"
                         name="profilePic"
@@ -73,10 +76,10 @@ function ContactCreateForm(props) {
                     />
                 </div>
                 <div>
-                    <button type="submit">Add Contact</button>
+                    <FormButton type="submit">Add Contact</FormButton>
                 </div>
-            </div>
-            </form>
+            </CreateContactInputContainer>
+            </CreateContactForm>
     )
 }
 

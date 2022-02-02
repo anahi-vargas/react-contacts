@@ -54,7 +54,7 @@ function App() {
   }, [])
 
   return (
-    <div>
+    <div className="App">
       <LoginPage />
       <RegisterPage />
       <ContactsPage contacts={contacts} />

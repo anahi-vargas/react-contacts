@@ -4,6 +4,7 @@ export const ContactCardContainer = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
+    min-width: 300px;
     width: 40vw;
     padding: 2vh;
     box-shadow: 2px 3px 2px 2px #B1B1B1;
@@ -51,5 +52,98 @@ export const ContactCardList = styled.div`
     align-items: center;
     width: 60vw;
     height: 80vh;
+`;
+
+export const DetailsCard = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 235px;
+    width: 35vw;
+    padding: 5vh;
+    background-color: #F7F7F7;
+`;
+
+export const DetailsCardAvatar = styled(ContactCardAvatar)`
+    width: 120px;
+    height: 120px;
+`;
+
+export const DetailsCardDescriptionTerm = styled.dt`
+    font-weight: bold;
+`;
+
+export const DetailsCardName = styled.p`
+    text-align: center;
+    font-size: 1.25rem;
+`;
+
+export const DetailsCardEmail = styled.dd`
+    color: blue;
+    text-decoration: underline;
+
+    &:hover {
+        cursor: pointer;
+    }
+`;
+
+export const FormPageConainter = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    min-width: 285px;
+    width: 30vw;
+    height: 25vh;
+    margin: 3vh;
+    box-shadow: 2px 3px 2px 2px #B1B1B1;
+    background-color: #FEFEFE;
+`;
+
+export const FormContainer = styled.form`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 20vh;
+`;
+
+export const FormInput = styled.input`
+    border: none;
+    border-bottom: 1px solid black;
+
+    &:focus {
+        outline: 0;
+    }
+`;
+
+export const FormButton = styled.button`
     background-color: #E4E4E4;
+    color: #000;
+    width: 4.75rem;
+    height: 2.25rem;
+    outline: inherit;
+    border: none;
+    cursor: pointer;
+`;
+
+export const FormAvatar = styled(DetailsCardAvatar)`
+    width: 100px;
+    height: 100px;
+`;
+
+export const CreateContactForm = styled(FormPageConainter)`
+    height: 55vh;
+`;
+
+export const CreateContactInputContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 35vh;
+`;
+
+export const AvatarDefault = styled.div`
+    width: 100px;
 `;

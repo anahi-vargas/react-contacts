@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { FormButton, FormContainer, FormInput } from "../StyledComponents"
 
 function LoginForm() {
     const [username, setUsername] = useState("");
@@ -9,23 +10,18 @@ function LoginForm() {
     }
 
     return (
-        <form onSubmit={handleFormSubmit}>
+        <FormContainer onSubmit={handleFormSubmit}>
             <div>
-                <label htmlFor="username">Username</label>
-                <input 
-                    id="username"
-                    name="username"
-                    type="text" 
+                <FormInput 
+                    aria-label='username'
                     placeholder="Username"  
                     value={username}
                     onChange={(e) => setUsername(e.target.value)}
                 />
             </div>
             <div>
-                <label htmlFor="password">Password</label>
-                <input 
-                    id="password"
-                    name="password"
+                <FormInput 
+                    aria-label='password'
                     type="password" 
                     placeholder="Password"
                     value={password}
@@ -33,9 +29,9 @@ function LoginForm() {
                 />
             </div>
             <div>
-                <button type="submit">Login</button>
+                <FormButton type="submit">Login</FormButton>
             </div>
-        </form>
+        </FormContainer>
     )
 }
 

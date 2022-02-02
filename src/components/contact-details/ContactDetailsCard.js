@@ -1,23 +1,25 @@
+import { DetailsCard, DetailsCardAvatar, DetailsCardDescriptionTerm, DetailsCardName, DetailsCardEmail } from "../StyledComponents"
+
 const  ContactDetailsCard = ({ contact }) => {
     return (
-        <div>
+        <DetailsCard>
             <div>
-                <img src={contact?.profilePic} alt={`Profile of ${contact?.firstName}${contact?.lastName}.`}/>
+                <DetailsCardAvatar src={contact?.profilePic} alt={`Profile of ${contact?.firstName}${contact?.lastName}.`}/>
             </div>
             <div>
-                <p>{contact?.firstName} {contact?.lastName}</p>
+                <DetailsCardName>{contact?.firstName} {contact?.lastName}</DetailsCardName>
                 <dl>
-                    <dt>Phone Number</dt>
+                    <DetailsCardDescriptionTerm>Phone Number</DetailsCardDescriptionTerm>
                     <dd>{contact?.phoneNumber}</dd>
 
-                    <dt>Email</dt>
-                    <dd>{contact?.email}</dd>
+                    <DetailsCardDescriptionTerm>Email</DetailsCardDescriptionTerm>
+                    <DetailsCardEmail>{contact?.email}</DetailsCardEmail>
 
-                    <dt>Address</dt>
+                    <DetailsCardDescriptionTerm>Address</DetailsCardDescriptionTerm>
                     <dd>{contact?.address}</dd>
                 </dl>
             </div>
-        </div>
+        </DetailsCard>
     )
 }
 

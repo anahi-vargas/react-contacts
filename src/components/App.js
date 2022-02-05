@@ -1,12 +1,13 @@
-import React, { useEffect, useState } from "react";
+// import React, { useEffect, useState, useContext } from "react";
 import LoginPage from "./login"
 import RegisterPage from "./register";
 import ContactsPage from "./contacts";
 import ContactDetailsPage from "./contact-details";
 import ContactCreatePage from "./contact-create";
-import { getContacts } from "../utils/contacts";
+// import { getContacts } from "../utils/contacts";
+// import  { ContactsContext } from "../contexts/ContactContext";
 
-const mockContacts = [
+export const mockContacts = [
   {
     "id": 1,
     "firstName": "Culley",
@@ -46,19 +47,19 @@ const mockContacts = [
 ];
 
 function App() {
-  const [contacts, setContacts] = useState([])
+  // const { contacts, setContacts } = useContext(ContactsContext);
 
-  useEffect(() => {
-    const storedContacts = getContacts();
-    setContacts(storedContacts.length ? storedContacts : mockContacts)
-  }, [])
+  // useEffect(() => {
+  //   const storedContacts = getContacts();
+  //   setContacts(storedContacts.length ? storedContacts : contacts)
+  // }, [])
 
   return (
     <div className="App">
       <LoginPage />
-      <RegisterPage />
-      <ContactsPage contacts={contacts} />
-      <ContactDetailsPage contact={contacts[0]} />
+      <RegisterPage  />
+      <ContactsPage />
+      <ContactDetailsPage />
       <ContactCreatePage />
     </div>
   );

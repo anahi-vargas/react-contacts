@@ -1,22 +1,26 @@
+import { useContext } from "react";
+import { ContactsContext } from "../../contexts/ContactContext";
 import { DetailsCard, DetailsCardAvatar, DetailsCardDescriptionTerm, DetailsCardName, DetailsCardEmail } from "../StyledComponents"
 
-const  ContactDetailsCard = ({ contact }) => {
+const  ContactDetailsCard = () => {
+    const { contacts } = useContext(ContactsContext)
+
     return (
         <DetailsCard>
             <div>
-                <DetailsCardAvatar src={contact?.profilePic} alt={`Profile of ${contact?.firstName}${contact?.lastName}.`}/>
+                <DetailsCardAvatar src={contacts[0].profilePic} alt={`Profile of ${contacts[0].firstName}${contacts[0].lastName}.`}/>
             </div>
             <div>
-                <DetailsCardName>{contact?.firstName} {contact?.lastName}</DetailsCardName>
+                <DetailsCardName>{contacts[0].firstName} {contacts[0].lastName}</DetailsCardName>
                 <dl>
                     <DetailsCardDescriptionTerm>Phone Number</DetailsCardDescriptionTerm>
-                    <dd>{contact?.phoneNumber}</dd>
+                    <dd>{contacts[0].phoneNumber}</dd>
 
                     <DetailsCardDescriptionTerm>Email</DetailsCardDescriptionTerm>
-                    <DetailsCardEmail>{contact?.email}</DetailsCardEmail>
+                    <DetailsCardEmail>{contacts[0].email}</DetailsCardEmail>
 
                     <DetailsCardDescriptionTerm>Address</DetailsCardDescriptionTerm>
-                    <dd>{contact?.address}</dd>
+                    <dd>{contacts[0].address}</dd>
                 </dl>
             </div>
         </DetailsCard>

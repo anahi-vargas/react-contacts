@@ -25,6 +25,7 @@ function RegisterForm() {
                     aria-label="password"
                     type="password" 
                     placeholder="Password"
+                    autoComplete="on"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                 />

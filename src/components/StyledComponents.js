@@ -7,6 +7,7 @@ export const ContactCardContainer = styled.div`
     min-width: 300px;
     width: 40vw;
     padding: 2vh;
+    margin-bottom: 2vh;
     box-shadow: 2px 3px 2px 2px #B1B1B1;
     background-color: #FEFEFE;
 `;
@@ -26,7 +27,7 @@ export const ContactCardButton = styled.button`
     width: 1.5rem;
     border-radius: 50%;
     align-text: center;
-
+    cursor: pointer;
 `;
 
 export const ContactCardInfo = styled.div`
@@ -48,10 +49,10 @@ export const ContactCardInfo = styled.div`
 export const ContactCardList = styled.div`
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    justify-content: space-between;
     align-items: center;
-    width: 60vw;
     height: 80vh;
+    overflow-y: scroll;
 `;
 
 export const DetailsCard = styled.div`

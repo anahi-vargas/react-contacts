@@ -1,6 +1,7 @@
-import React, { useState } from "react";
-import { AvatarDefault, CreateContactInputContainer, CreateContactForm, FormAvatar, FormButton, FormInput } from "../StyledComponents";
+import React, { useContext, useState } from "react";
+import { CreateContactInputContainer, CreateContactForm, FormAvatar, FormButton, FormInput } from "../StyledComponents";
 import { FaUserCircle } from "react-icons/fa"
+import { ContactsContext } from "../../contexts/ContactContext";
 
 function ContactCreateForm(props) {
     const [firstName, setFirstName] = useState("")
@@ -10,13 +11,23 @@ function ContactCreateForm(props) {
     const [address, setAddress] = useState("")
     const [profilePic, setProfilePic] = useState("")
 
+    const { contacts, addContact } = useContext(ContactsContext)
+
     const handleFormSubmit = (event) => {
         event.preventDefault()
-        console.log(profilePic)
+        addContact({ 
+            id: contacts.length + 1,
+            firstName: firstName,
+            lastName: lastName,
+            profilePic: profilePic,
+            phoneNumber: phoneNumber,
+            email: email,
+            address: address
+        })
     }
 
     return(
-        <CreateContactForm onSubmit={handleFormSubmit}>
+        <CreateContactForm>
             <div>
                {profilePic ? <FormAvatar src={profilePic} alt="Profile preview." /> : <FaUserCircle className="default-avatar" />}
             </div>
@@ -76,7 +87,7 @@ function ContactCreateForm(props) {
                     />
                 </div>
                 <div>
-                    <FormButton type="submit">Add Contact</FormButton>
+                    <FormButton onClick={handleFormSubmit}>Add Contact</FormButton>
                 </div>
             </CreateContactInputContainer>
             </CreateContactForm>

@@ -1,10 +1,21 @@
-import { ContactCardContainer, ContactCardAvatar, ContactCardButton, ContactCardInfo} from "../StyledComponents"
-const ContactCard = ({ firstName='', lastName='', phoneNumber='', profilePic='' }) => {
+import { ContactCardContainer, ContactCardAvatar, ContactCardButton, ContactCardInfo, AvatarDefault} from "../StyledComponents"
+import { FaUserCircle } from "react-icons/fa";
+
+const ContactCard = ({ index='', firstName='', lastName='', phoneNumber='', profilePic='', removeContact='' }) => {
+
+    const checkImage = (url) => {
+        let image = new Image();
+        image.src = url
+        return image.width > 0
+    }
+
     return (
         <ContactCardContainer>
             <ContactCardInfo>
                 <div>
-                    <ContactCardAvatar src={profilePic} alt={`Profile of ${firstName} ${lastName}.`} />
+                    {checkImage(profilePic) ? 
+                        <ContactCardAvatar src={profilePic} alt={`Profile of ${firstName} ${lastName}.`} /> : 
+                        <AvatarDefault><FaUserCircle className="default-avatar" /></AvatarDefault>}
                 </div>
                 <div>
                     <p>{firstName} {lastName}</p>
@@ -12,7 +23,7 @@ const ContactCard = ({ firstName='', lastName='', phoneNumber='', profilePic='' 
                 </div>
                 </ContactCardInfo>
             <div>
-                <ContactCardButton>X</ContactCardButton>
+                <ContactCardButton onClick={() => removeContact(index)}>X</ContactCardButton>
             </div>
         </ContactCardContainer>
     )

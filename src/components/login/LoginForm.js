@@ -1,16 +1,20 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
+import { AuthContext } from '../../contexts/AuthContext';
 import { FormButton, FormContainer, FormInput } from "../StyledComponents"
 
 function LoginForm() {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
 
+    const { logIn } = useContext(AuthContext)
+
     const handleFormSubmit = (event) => {
         event.preventDefault();
+        logIn(username, password)
     }
 
     return (
-        <FormContainer onSubmit={handleFormSubmit}>
+        <FormContainer>
             <div>
                 <FormInput 
                     aria-label='username'
@@ -30,7 +34,7 @@ function LoginForm() {
                 />
             </div>
             <div>
-                <FormButton type="submit">Login</FormButton>
+                <FormButton onClick={handleFormSubmit}>Login</FormButton>
             </div>
         </FormContainer>
     )

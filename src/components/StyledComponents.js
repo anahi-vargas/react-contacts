@@ -53,6 +53,7 @@ export const ContactCardList = styled.div`
     align-items: center;
     height: 80vh;
     overflow-y: scroll;
+    margin: 3vh 0vh 3vh 0vh
 `;
 
 export const DetailsCard = styled.div`
@@ -96,7 +97,7 @@ export const FormPageConainter = styled.div`
     min-width: 285px;
     width: 30vw;
     height: 25vh;
-    margin: 3vh;
+    margin: 25vh 50vh 50vh 50vh;
     box-shadow: 2px 3px 2px 2px #B1B1B1;
     background-color: #FEFEFE;
 `;
@@ -135,6 +136,7 @@ export const FormAvatar = styled(DetailsCardAvatar)`
 
 export const CreateContactForm = styled(FormPageConainter)`
     height: 55vh;
+    margin: 3vh;
 `;
 
 export const CreateContactInputContainer = styled.div`
@@ -147,4 +149,8 @@ export const CreateContactInputContainer = styled.div`
 
 export const AvatarDefault = styled.div`
     width: 100px;
+`;
+
+export const LogOutButton = styled(FormButton)`
+    margin: 2vh 0vh 2vh 90vh
 `;

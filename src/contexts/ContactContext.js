@@ -9,6 +9,7 @@ const ContactsProvider = (props) => {
   const addContact = (contact) => {
     setContacts([...contacts, contact])
   }
+
   const removeContact = (index) => {
     const newContactList = [...contacts]
     newContactList.splice(index, 1)

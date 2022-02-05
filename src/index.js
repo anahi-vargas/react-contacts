@@ -4,12 +4,15 @@ import './index.css';
 import App from './components/App';
 import reportWebVitals from './reportWebVitals';
 import { ContactsProvider } from "./contexts/ContactContext"
+import { AuthProvider } from './contexts/AuthContext';
 
 ReactDOM.render(
   <React.StrictMode>
+    <AuthProvider>
     <ContactsProvider>
       <App />
     </ContactsProvider>
+    </AuthProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );

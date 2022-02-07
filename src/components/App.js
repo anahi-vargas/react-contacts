@@ -6,7 +6,7 @@ import ContactDetailsPage from "./contact-details";
 import ContactCreatePage from "./contact-create";
 import { LogOutButton } from "./StyledComponents";
 // import { getContacts } from "../utils/contacts";
-import  { AuthContext, AuthProvider } from "../contexts/AuthContext";
+import  { AuthContext } from "../contexts/AuthContext";
 
 export const mockContacts = [
   {

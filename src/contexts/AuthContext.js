@@ -17,7 +17,6 @@ const AuthProvider = (props) => {
     const logOut = () => {
         setLoggedIn(false)
     }
-    console.log(isLoggedIn)
 
     return(
         <AuthContext.Provider value={{ isLoggedIn, logIn, logOut}}>

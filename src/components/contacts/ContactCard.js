@@ -1,19 +1,23 @@
 import { ContactCardContainer, ContactCardAvatar, ContactCardButton, ContactCardInfo, AvatarDefault} from "../StyledComponents"
 import { FaUserCircle } from "react-icons/fa";
+import { useEffect } from "react";
 
 const ContactCard = ({ index='', firstName='', lastName='', phoneNumber='', profilePic='', removeContact='' }) => {
-
-    const checkImage = (url) => {
-        let image = new Image();
-        image.src = url
-        return image.width > 0
-    }
+   
+    useEffect(() => {
+        const checkImage = (url) => {
+            let image = new Image();
+            image.src = url
+            return image.width > 0
+        }
+        checkImage()    
+    }, [])
 
     return (
         <ContactCardContainer>
             <ContactCardInfo>
                 <div>
-                    {checkImage(profilePic) ? 
+                    {profilePic? 
                         <ContactCardAvatar src={profilePic} alt={`Profile of ${firstName} ${lastName}.`} /> : 
                         <AvatarDefault><FaUserCircle className="default-avatar" /></AvatarDefault>}
                 </div>

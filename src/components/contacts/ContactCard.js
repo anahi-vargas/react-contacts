@@ -1,8 +1,15 @@
 import { ContactCardContainer, ContactCardAvatar, ContactCardButton, ContactCardInfo, AvatarDefault} from "../StyledComponents"
 import { FaUserCircle } from "react-icons/fa";
 import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 const ContactCard = ({ index='', firstName='', lastName='', phoneNumber='', profilePic='', removeContact='' }) => {
+
+    let navigate = useNavigate()
+
+    const handleClick = () => {
+        navigate(`/contacts/${index}`)
+    }
    
     useEffect(() => {
         const checkImage = (url) => {
@@ -15,7 +22,7 @@ const ContactCard = ({ index='', firstName='', lastName='', phoneNumber='', prof
 
     return (
         <ContactCardContainer>
-            <ContactCardInfo>
+            <ContactCardInfo onClick={handleClick}>
                 <div>
                     {profilePic? 
                         <ContactCardAvatar src={profilePic} alt={`Profile of ${firstName} ${lastName}.`} /> : 

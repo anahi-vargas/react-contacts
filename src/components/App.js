@@ -1,12 +1,8 @@
-import React, { useContext } from "react";
-import LoginPage from "./login"
-// import RegisterPage from "./register";
-import ContactsPage from "./contacts";
-import ContactDetailsPage from "./contact-details";
-import ContactCreatePage from "./contact-create";
-import { LogOutButton } from "./StyledComponents";
-// import { getContacts } from "../utils/contacts";
-import  { AuthContext } from "../contexts/AuthContext";
+import { useContext } from "react";
+import { Outlet } from "react-router-dom";
+import { AuthContext } from "../contexts/AuthContext";
+import NavBar from "./NavBar";
+import '../index.css';
 
 export const mockContacts = [
   {
@@ -48,27 +44,13 @@ export const mockContacts = [
 ];
 
 function App() {
-  // const { contacts, setContacts } = useContext(ContactsContext);
 
-  // useEffect(() => {
-  //   const storedContacts = getContacts();
-  //   setContacts(storedContacts.length ? storedContacts : contacts)
-  // }, [])
-
-  const { isLoggedIn, logOut } = useContext(AuthContext)
+  const { isLoggedIn } = useContext(AuthContext)
 
   return (
       <div className="App">
-        {!isLoggedIn && <LoginPage />}
-        {isLoggedIn && 
-          <>
-            <LogOutButton onClick={logOut}>Log Out</LogOutButton>
-            <ContactsPage />
-            <ContactDetailsPage />
-            <ContactCreatePage />
-           
-          </>
-        }
+        {isLoggedIn && <NavBar />}
+        <Outlet />
       </div>
   );
 }

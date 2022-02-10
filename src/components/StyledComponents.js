@@ -44,6 +44,10 @@ export const ContactCardInfo = styled.div`
         color: #505358;
         
     }
+
+    &:hover {
+        cursor: pointer;
+    }
 `;
 
 export const ContactCardList = styled.div`
@@ -63,7 +67,16 @@ export const DetailsCard = styled.div`
     width: 35vw;
     padding: 5vh;
     background-color: #F7F7F7;
+    box-shadow: 1px 2px 3px 2px #b1b1b1;
 `;
+
+export const NotFoundContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+`
 
 export const DetailsCardAvatar = styled(ContactCardAvatar)`
     width: 120px;
@@ -152,4 +165,23 @@ export const AvatarDefault = styled.div`
 
 export const LogOutButton = styled(FormButton)`
     margin: 2vh 0vh 2vh 90vh
+`;
+
+export const Nav = styled.nav`
+    position: absolute;
+    top: 0;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    width: 100%;
+    min-height: 6vh;
+    max-height: 8vh;
+    background: #1E3F66;
+    padding: 0vw 5vw 0vw 5vw;
+`;
+
+export const NavIcon = styled.div`
+    margin-left: 3vh;
+    color: #F5F5F5;
+    font-size: 1rem;
 `;

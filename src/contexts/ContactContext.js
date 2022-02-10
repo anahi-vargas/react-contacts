@@ -4,7 +4,6 @@ import { mockContacts } from "../components/App";
 const ContactsContext = createContext({ contacts: []})
 
 const ContactsProvider = (props) => {
-  const firstContact = mockContacts[0]
   const [contacts, setContacts] = useState(mockContacts)
   
   const addContact = (contact) => {
@@ -18,7 +17,7 @@ const ContactsProvider = (props) => {
   }
 
   return (
-    <ContactsContext.Provider value={{contacts, setContacts, addContact, removeContact, firstContact}}>
+    <ContactsContext.Provider value={{contacts, setContacts, addContact, removeContact}}>
       {props.children}
     </ContactsContext.Provider>
   );

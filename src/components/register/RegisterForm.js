@@ -31,7 +31,7 @@ function RegisterForm() {
                 />
             </div>
             <div>
-                <FormButton type="submit">Login</FormButton>
+                <FormButton type="submit">Register</FormButton>
             </div>
         </FormContainer>
     )

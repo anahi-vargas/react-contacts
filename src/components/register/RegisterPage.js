@@ -1,12 +1,13 @@
 import { FormPageConainter } from '../StyledComponents';
 import RegisterForm from './RegisterForm';
+import { Link } from "react-router-dom"
 
 const RegisterPage = (props) => {
     return (
         <FormPageConainter>
             <RegisterForm />
             <div>
-                <p>Already have an account? <a href="/login">Login</a>.</p>
+                <p>Already have an account? <Link to="/login">Login</Link>.</p>
             </div>
         </FormPageConainter>
     )

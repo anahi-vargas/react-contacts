@@ -11,7 +11,9 @@ const AuthProvider = (props) => {
 
         if (username === validUsername && password === validPassword) {
             setLoggedIn(true)
+            return true
         }
+        
     }
 
     const logOut = () => {

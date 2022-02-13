@@ -1,4 +1,5 @@
 import React, { useContext, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthContext';
 import { FormButton, FormContainer, FormInput } from "../StyledComponents"
 
@@ -7,10 +8,13 @@ function LoginForm() {
     const [password, setPassword] = useState("");
 
     const { logIn } = useContext(AuthContext)
+    let navigate = useNavigate()
 
     const handleFormSubmit = (event) => {
         event.preventDefault();
-        logIn(username, password)
+        if (logIn(username, password))
+            navigate("/")
+
     }
 
     return (
